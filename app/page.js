@@ -234,7 +234,7 @@ export default function Home() {
         </div>
         <div className="about-content observe-fade">
           <div className="about-image">
-            <Image src="/images/15.jpg" alt="The DEN Food" width={500} height={400} />
+            <Image src="/images/14.jpg" alt="The DEN Food" width={500} height={400} />
           </div>
           <div className="about-text">
             <p>THE DEN is a homegrown food and drinks brand in Pagadian City serving freshly prepared meal prep boxes, healthy salads, and indulgent desserts. Every item is cooked to order and packed fresh daily.</p>
