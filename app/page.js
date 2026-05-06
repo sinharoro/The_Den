@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const email = 'thedenmaldives@gmail.com';
-const phone = '+639150560463';
+const email = 'thedenph@gmail.com'; // placeholder — owner must confirm real email
+const phone = '+639156560463';
 const facebook = 'https://www.facebook.com/people/The-Den/61552914748829/';
+const instagram = 'https://www.instagram.com/the.dennnnn';
+const messenger = 'https://m.me/TheDen';
 
 const packages = [
   {
@@ -106,6 +108,20 @@ const packages = [
   },
 ];
 
+const testimonials = [
+  { name: 'Princess May Ranoco',    stars: 5, text: 'Their salad is incredibly tasty and great value!' },
+  { name: 'Bullecer R. Ruby',       stars: 5, text: 'I was very full — it\'s so delicious!' },
+  { name: 'Riezel Mae Jusay',       stars: 5, text: 'Super delicious — I finished it all so fast!' },
+  { name: 'Iris Van Soriano',       stars: 5, text: 'So sarap, thank you po!' },
+  { name: 'Ayes Gay',               stars: 5, text: 'Yummy dressing that goes really well with all the ingredients.' },
+  { name: 'Windy Mae Paza',         stars: 5, text: 'Ateee lami kaayu teee — so good!' },
+  { name: 'Nurkida A. Ismael',       stars: 5, text: 'Different from other salads — perfect for those on a diet!' },
+  { name: 'Christine Manaois',      stars: 5, text: 'Thanks, it\'s so lami!' },
+  { name: 'Ralph Earl Nodado',      stars: 5, text: 'Ate it right away — lami kayo, finished it all!' },
+  { name: 'Precious Pearl Dela Pena', stars: 5, text: 'Fresh veggies plus chicken breast — chef\'s kiss!' },
+  { name: 'Jezyl Esconde-Maribojoc', stars: 5, text: 'Super worth it for the price and the veggies are so fresh!' },
+];
+
 const galleryImages = [
   { src: '/images/01.png', label: 'Delicious Meal Prep'   },
   { src: '/images/03.jpg', label: 'Chicken Salad'          },
@@ -167,12 +183,13 @@ export default function Home() {
     <>
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <a href="#home" className="navbar-logo">
-          <span className="navbar-logo-text">THE DEN</span>
+          <Image src="/details/The Den logo.jpg" alt="The Den Food and Drinks" width={100} height={50} style={{ objectFit: 'contain' }} />
         </a>
         <ul className="navbar-links">
           <li><a href="#home" className="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#foods">Foods</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -185,6 +202,7 @@ export default function Home() {
         <a href="#home" onClick={() => setMobileOpen(false)}>Home</a>
         <a href="#about" onClick={() => setMobileOpen(false)}>About</a>
         <a href="#foods" onClick={() => setMobileOpen(false)}>Foods</a>
+        <a href="#reviews" onClick={() => setMobileOpen(false)}>Reviews</a>
         <a href="#gallery" onClick={() => setMobileOpen(false)}>Gallery</a>
         <a href="#contact" onClick={() => setMobileOpen(false)}>Contact</a>
       </div>
@@ -195,13 +213,16 @@ export default function Home() {
         <div className="hero-content">
           <span className="hero-eyebrow">Fresh. Healthy. Delicious.</span>
           <h1 className="hero-title">THE DEN</h1>
-          <p className="hero-subtitle">Freshly prepared meal boxes, salads & desserts — ready for pickup or delivery.</p>
+          <p className="hero-subtitle">Busy life, better food. Power-packed meals with lean protein, smart carbs, and veggies — delivered fresh to your door.</p>
           <div className="hero-buttons">
             <a href={`https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+The+DEN`} className="hero-btn hero-btn-primary" target="_blank" rel="noopener noreferrer">
               <i className="fa-solid fa-envelope"></i> Order via Email
             </a>
             <a href={`sms:${phone}?body=Hi%2C+I%27d+like+to+order+from+The+DEN.`} className="hero-btn hero-btn-secondary">
               <i className="fa-solid fa-comment-sms"></i> Order via SMS
+            </a>
+            <a href={messenger} className="hero-btn hero-btn-messenger" target="_blank" rel="noopener noreferrer">
+              <i className="fa-brands fa-facebook-messenger"></i> Message on FB
             </a>
           </div>
         </div>
@@ -216,8 +237,33 @@ export default function Home() {
             <Image src="/images/15.jpg" alt="The DEN Food" width={500} height={400} />
           </div>
           <div className="about-text">
-            <p>THE DEN is a homegrown food and drinks brand serving freshly prepared meal prep boxes, healthy salads, and indulgent desserts. Every item is cooked to order and packed fresh daily.</p>
-            <p>Whether you're grabbing a quick Chicken Salad or pre-ordering our Blueberry Dessert Cups, we make sure every bite is worth it. Open Monday–Saturday, 7:00 AM to 7:00 PM.</p>
+            <p>THE DEN is a homegrown food and drinks brand in Pagadian City serving freshly prepared meal prep boxes, healthy salads, and indulgent desserts. Every item is cooked to order and packed fresh daily.</p>
+            <p>Whether you're grabbing a quick Chicken Salad or pre-ordering our Blueberry Dessert Cups, we make sure every bite is worth it. Open Monday–Saturday, 7:00 AM to 7:00 PM. Closed on Sundays. Delivery available via Boknoy Delivery Services.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section delivery-section observe-fade">
+        <div className="observe-fade">
+          <SectionHeading
+            eyebrow="We Deliver"
+            heading="Fresh to Your Doorstep"
+            highlight="Doorstep"
+            description="Can't come to us? We deliver via Boknoy Delivery Services. Call or message us to arrange delivery."
+          />
+        </div>
+        <div className="delivery-content observe-fade">
+          <div className="delivery-badge">
+            <i className="fa-solid fa-motorcycle"></i>
+            <span>Delivery via <strong>Boknoy Delivery Services</strong></span>
+          </div>
+          <div className="delivery-actions">
+            <a href={`tel:${phone}`} className="hero-btn hero-btn-primary">
+              <i className="fa-solid fa-phone"></i> Call to Order
+            </a>
+            <a href={`sms:${phone}?body=Hi%2C+I%27d+like+to+order+for+delivery.`} className="hero-btn hero-btn-secondary">
+              <i className="fa-solid fa-comment-sms"></i> SMS for Delivery
+            </a>
           </div>
         </div>
       </section>
@@ -255,6 +301,30 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="reviews" className="section section-dark observe-fade">
+        <div className="observe-fade">
+          <SectionHeading
+            eyebrow="What Customers Say"
+            heading="Real Reviews"
+            highlight="Reviews"
+            description="Hear it from the people who've tried The Den — all 5 stars."
+          />
+        </div>
+        <div className="reviews-grid">
+          {testimonials.map((r, i) => (
+            <div key={i} className="review-card observe-fade">
+              <div className="review-stars">
+                {Array.from({ length: r.stars }).map((_, j) => (
+                  <i key={j} className="fa-solid fa-star"></i>
+                ))}
+              </div>
+              <p className="review-text">"{r.text}"</p>
+              <span className="review-name">— {r.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="gallery" className="section gallery-section">
         <div className="observe-fade">
           <SectionHeading eyebrow="Our Gallery" heading="A Taste of THE DEN" highlight="Taste" description="A look at the food, flavors, and freshness we bring to every order." />
@@ -280,7 +350,7 @@ export default function Home() {
           <div className="contact-info observe-fade">
             <div className="contact-card">
               <div className="contact-icon"><i className="fa-solid fa-location-dot"></i></div>
-              <div className="contact-details"><h4>Location</h4><p>Quezon City, Philippines</p></div>
+              <div className="contact-details"><h4>Location</h4><p>Purok Nangka, Banale, Pagadian City, Philippines 7016</p></div>
             </div>
             <div className="contact-card">
               <div className="contact-icon"><i className="fa-solid fa-phone"></i></div>
@@ -294,6 +364,13 @@ export default function Home() {
               <div className="contact-icon"><i className="fa-brands fa-facebook-f"></i></div>
               <div className="contact-details"><h4>Facebook</h4><p><a href={facebook} target="_blank" rel="noopener noreferrer">facebook.com/The-Den</a></p></div>
             </div>
+            <div className="contact-card">
+              <div className="contact-icon"><i className="fa-brands fa-instagram"></i></div>
+              <div className="contact-details">
+                <h4>Instagram</h4>
+                <p><a href={instagram} target="_blank" rel="noopener noreferrer">@the.dennnnn</a></p>
+              </div>
+            </div>
             <div className="contact-cta">
               <a href={`https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+The+DEN`} className="contact-cta-btn email" target="_blank" rel="noopener noreferrer">
                 <i className="fa-solid fa-envelope"></i> Order via Email
@@ -304,22 +381,26 @@ export default function Home() {
               <a href={facebook} target="_blank" rel="noopener noreferrer" className="contact-cta-btn facebook">
                 <i className="fa-brands fa-facebook-f"></i> Message on Facebook
               </a>
+              <a href={instagram} target="_blank" rel="noopener noreferrer" className="contact-cta-btn instagram">
+                <i className="fa-brands fa-instagram"></i> Follow on Instagram
+              </a>
             </div>
           </div>
           <div className="map-card observe-fade">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123978.19764455888!2d121.02200!3d14.67628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b0e60b944ef7%3A0x9d0a1d3a9b9b7e7e!2sQuezon+City%2C+Metro+Manila%2C+Philippines!5e0!3m2!1sen!2sph!4v1680000000000!5m2!1sen!2sph" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15697.5!2d123.4367!3d7.8383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x325579e3b6a5f0c3%3A0x1!2sPagadian+City%2C+Zamboanga+del+Sur!5e0!3m2!1sen!2sph!4v1680000000000!5m2!1sen!2sph" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </section>
 
       <footer className="footer">
         <div className="footer-container">
-          <div className="footer-logo"><span className="footer-logo-text">THE DEN</span></div>
+          <div className="footer-logo"><Image src="/details/The Den logo.jpg" alt="The Den Food and Drinks" width={80} height={40} style={{ objectFit: 'contain' }} /></div>
           <div className="footer-copyright">&copy; {new Date().getFullYear()} THE DEN Food and Drinks. All rights reserved.</div>
           <ul className="footer-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#foods">Foods</a></li>
+            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>

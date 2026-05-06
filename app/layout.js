@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'THE DEN | Food and Drinks',
-  description: 'The DEN serves fresh, healthy meal prep boxes and food delivery. Order your Chicken Salad, Herb Chicken, and more. Open Mon–Sat 7AM–7PM.',
+  title: 'The Den | Food and Drinks — Pagadian City',
+  description: 'The Den Food and Drinks in Pagadian City serves fresh meal prep boxes, healthy salads & desserts. Delivery via Boknoy. Open Mon–Sat 7AM–7PM. Call +639156560463.',
 };
 
 export default function RootLayout({ children }) {
