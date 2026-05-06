@@ -4,31 +4,121 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const email = 'thedenmaldives@gmail.com';
-const phone = '+919876543210';
+const phone = '+639150560463';
 const facebook = 'https://www.facebook.com/people/The-Den/61552914748829/';
 
 const packages = [
-  { id: 1, title: 'Beach Villa', category: 'Villa', image: '/images/21.jpg', price: '₹15,000', perNight: '/ night', features: [{ icon: 'fa-bed', text: 'King Bed' }, { icon: 'fa-water', text: 'Sea View' }, { icon: 'fa-wifi', text: 'Free WiFi' }, { icon: 'fa-snowflake', text: 'AC' }], emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Booking+-+Beach+Villa+-+The+DEN`, smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+book+Beach+Villa.` },
-  { id: 2, title: 'Garden Villa', category: 'Villa', image: '/images/20.jpg', price: '₹12,000', perNight: '/ night', features: [{ icon: 'fa-bed', text: 'Queen Bed' }, { icon: 'fa-tree', text: 'Garden View' }, { icon: 'fa-wifi', text: 'Free WiFi' }, { icon: 'fa-snowflake', text: 'AC' }], emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Booking+-+Garden+Villa+-+The+DEN`, smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+book+Garden+Villa.` },
-  { id: 3, title: 'Couple Package', category: 'Package', image: '/images/22.jpg', price: '₹25,000', perNight: '/ couple', features: [{ icon: 'fa-heart', text: 'Couple Special' }, { icon: 'fa-utensils', text: 'Meal Included' }, { icon: 'fa-spa', text: 'Spa Discount' }, { icon: 'fa-camera', text: 'Photo Session' }], emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Booking+-+Couple+Package+-+The+DEN`, smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+book+Couple+Package.` },
-  { id: 4, title: 'Family Package', category: 'Package', image: '/images/23.jpg', price: '₹35,000', perNight: '/ family', features: [{ icon: 'fa-users', text: 'Family Friendly' }, { icon: 'fa-utensils', text: 'Meals Included' }, { icon: 'fa-child', text: 'Kids Area' }, { icon: 'fa-umbrella-beach', text: 'Beach Access' }], emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Booking+-+Family+Package+-+The+DEN`, smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+book+Family+Package.` },
-  { id: 5, title: 'Honeymoon Suite', category: 'Villa', image: '/images/24.jpg', price: '₹22,000', perNight: '/ night', features: [{ icon: 'fa-heart', text: 'Honeymoon' }, { icon: 'fa-candle', text: 'Candle Dinner' }, { icon: 'fa-bath', text: 'Private Pool' }, { icon: 'fa-ring', text: 'Flower Decoration' }], emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Booking+-+Honeymoon+Suite+-+The+DEN`, smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+book+Honeymoon+Suite.` },
-  { id: 6, title: 'Adventure Package', category: 'Package', image: '/images/25.jpg', price: '₹18,000', perNight: '/ person', features: [{ icon: 'fa-fish', text: 'Snorkeling' }, { icon: 'fa-sailboat', text: 'Boat Ride' }, { icon: 'fa-water', text: 'Scuba Diving' }, { icon: 'fa-island-tropical', text: 'Island Hopping' }], emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Booking+-+Adventure+Package+-+The+DEN`, smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+book+Adventure+Package.` },
+  {
+    id: 1,
+    title: 'Chicken Salad',
+    category: 'Salad',
+    image: '/images/03.jpg',
+    price: '₱135',
+    perNight: '/ order',
+    features: [
+      { icon: 'fa-leaf',     text: 'Fresh Greens'       },
+      { icon: 'fa-drumstick-bite', text: 'Grilled Chicken'  },
+      { icon: 'fa-carrot',   text: 'Mixed Vegetables'   },
+      { icon: 'fa-bowl-food', text: 'Special Dressing'  },
+    ],
+    emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+Chicken+Salad+-+The+DEN`,
+    smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+order+Chicken+Salad.`,
+  },
+  {
+    id: 2,
+    title: 'Herb Chicken Meal Prep',
+    category: 'Meal Prep',
+    image: '/images/05.jpg',
+    price: '₱145',
+    perNight: '/ box',
+    features: [
+      { icon: 'fa-drumstick-bite', text: 'Herb-Seasoned Chicken' },
+      { icon: 'fa-bowl-rice',  text: 'Steamed Rice'        },
+      { icon: 'fa-leaf',       text: 'Garden Veggies'      },
+      { icon: 'fa-fire',       text: 'Perfectly Cooked'    },
+    ],
+    emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+Herb+Chicken+-+The+DEN`,
+    smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+order+Herb+Chicken+Meal+Prep.`,
+  },
+  {
+    id: 3,
+    title: 'Classic Meal Prep Box',
+    category: 'Meal Prep',
+    image: '/images/21.jpg',
+    price: 'Pre-Order',
+    perNight: '',
+    features: [
+      { icon: 'fa-box',      text: 'Packed Fresh Daily'  },
+      { icon: 'fa-bowl-rice', text: 'Rice + Protein'    },
+      { icon: 'fa-carrot',   text: 'Assorted Veggies'   },
+      { icon: 'fa-leaf',     text: 'Healthy & Balanced' },
+    ],
+    emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+Classic+Meal+Prep+Box+-+The+DEN`,
+    smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+pre-order+a+Classic+Meal+Prep+Box.`,
+  },
+  {
+    id: 4,
+    title: 'The DEN Bowl',
+    category: 'Bowl',
+    image: '/images/22.jpg',
+    price: 'Ask Us',
+    perNight: '',
+    features: [
+      { icon: 'fa-bowl-food', text: 'Loaded Bowl'        },
+      { icon: 'fa-egg',       text: 'Topped with Egg'    },
+      { icon: 'fa-pepper-hot', text: 'Spicy Option'      },
+      { icon: 'fa-leaf',      text: 'Fresh Toppings'     },
+    ],
+    emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+The+DEN+Bowl+-+The+DEN`,
+    smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+order+The+DEN+Bowl.`,
+  },
+  {
+    id: 5,
+    title: 'Blueberry Dessert Cup',
+    category: 'Dessert',
+    image: '/images/17.jpg',
+    price: 'Pre-Order',
+    perNight: '',
+    features: [
+      { icon: 'fa-ice-cream',  text: 'Creamy Base'        },
+      { icon: 'fa-seedling',   text: 'Blueberry Topping'  },
+      { icon: 'fa-star',       text: 'House Special'      },
+      { icon: 'fa-box',        text: 'Cup-Packed'         },
+    ],
+    emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+Blueberry+Dessert+-+The+DEN`,
+    smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+pre-order+Blueberry+Dessert+Cups.`,
+  },
+  {
+    id: 6,
+    title: 'Banana Pudding Cup',
+    category: 'Dessert',
+    image: '/images/18.jpg',
+    price: 'Pre-Order',
+    perNight: '',
+    features: [
+      { icon: 'fa-ice-cream',  text: 'Creamy Custard'     },
+      { icon: 'fa-cookie',     text: 'Banana & Crumble'   },
+      { icon: 'fa-star',       text: 'Customer Favorite'  },
+      { icon: 'fa-box',        text: 'Cup-Packed'         },
+    ],
+    emailLink: `https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+Banana+Pudding+-+The+DEN`,
+    smsLink: `sms:${phone}?body=Hi%2C+I%27d+like+to+pre-order+Banana+Pudding+Cups.`,
+  },
 ];
 
 const galleryImages = [
-  { src: '/images/01.png', label: 'Sunset View' },
-  { src: '/images/02.jpg', label: 'Beach Paradise' },
-  { src: '/images/03.jpg', label: 'Crystal Waters' },
-  { src: '/images/04.jpg', label: 'Luxury Villa' },
-  { src: '/images/05.jpg', label: 'Water Bungalow' },
-  { src: '/images/06.jpg', label: 'Private Deck' },
-  { src: '/images/07.jpg', label: 'Ocean Villa' },
-  { src: '/images/08.jpg', label: 'Tropical Haven' },
-  { src: '/images/09.jpg', label: 'Sunrise Deck' },
-  { src: '/images/10.jpg', label: 'White Sand Beach' },
-  { src: '/images/11.jpg', label: 'Villa Interior' },
-  { src: '/images/12.jpg', label: 'Overwater Sunset' },
+  { src: '/images/01.png', label: 'Delicious Meal Prep'   },
+  { src: '/images/03.jpg', label: 'Chicken Salad'          },
+  { src: '/images/04.jpg', label: 'Fresh & Healthy Salad'  },
+  { src: '/images/05.jpg', label: 'Herb Chicken'           },
+  { src: '/images/06.jpg', label: 'Chicken Salad Pre-Order'},
+  { src: '/images/14.jpg', label: 'Orders Ready to Go'     },
+  { src: '/images/15.jpg', label: 'Packed with Care'       },
+  { src: '/images/16.jpg', label: 'Our Signature Dressings'},
+  { src: '/images/17.jpg', label: 'Blueberry Dessert Cup'  },
+  { src: '/images/18.jpg', label: 'Banana Pudding Cup'     },
+  { src: '/images/19.jpg', label: 'Hearty Meal Box'        },
+  { src: '/images/22.jpg', label: 'The DEN Bowl'           },
 ];
 
 function SectionHeading({ eyebrow, heading, highlight, description }) {
@@ -103,15 +193,15 @@ export default function Home() {
         <div className="hero-background"></div>
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <span className="hero-eyebrow">A Retreat Worth Savouring</span>
+          <span className="hero-eyebrow">Fresh. Healthy. Delicious.</span>
           <h1 className="hero-title">THE DEN</h1>
-          <p className="hero-subtitle">Experience luxury by the sea</p>
+          <p className="hero-subtitle">Freshly prepared meal boxes, salads & desserts — ready for pickup or delivery.</p>
           <div className="hero-buttons">
-            <a href={`https://mail.google.com/mail/?view=cm&to=${email}&su=Booking+-+The+DEN`} className="hero-btn hero-btn-primary" target="_blank" rel="noopener noreferrer">
-              <i className="fa-solid fa-envelope"></i> Book via Email
+            <a href={`https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+The+DEN`} className="hero-btn hero-btn-primary" target="_blank" rel="noopener noreferrer">
+              <i className="fa-solid fa-envelope"></i> Order via Email
             </a>
-            <a href={`sms:${phone}?body=Hi%2C+I%27d+like+to+book+at+The+DEN.`} className="hero-btn hero-btn-secondary">
-              <i className="fa-solid fa-comment-sms"></i> Book via SMS
+            <a href={`sms:${phone}?body=Hi%2C+I%27d+like+to+order+from+The+DEN.`} className="hero-btn hero-btn-secondary">
+              <i className="fa-solid fa-comment-sms"></i> Order via SMS
             </a>
           </div>
         </div>
@@ -119,22 +209,22 @@ export default function Home() {
 
       <section id="about" className="section section-light">
         <div className="observe-fade">
-          <SectionHeading eyebrow="Welcome to THE DEN" heading="Your Dream Resort" highlight="Dream" description="Escape to paradise at THE DEN, where luxury meets natural beauty." />
+          <SectionHeading eyebrow="Welcome to THE DEN" heading="Food Made with Love" highlight="Love" description="We prepare fresh, healthy meals daily — crafted with real ingredients and packed with care." />
         </div>
         <div className="about-content observe-fade">
           <div className="about-image">
-            <Image src="/images/26.jpg" alt="Resort View" width={500} height={400} />
+            <Image src="/images/15.jpg" alt="The DEN Food" width={500} height={400} />
           </div>
           <div className="about-text">
-            <p>Nestled in the heart of the Maldives, THE DEN offers an unparalleled tropical escape. Our resort combines traditional island charm with modern luxury.</p>
-            <p>From overwater villas to pristine beaches, every moment at THE DEN is crafted to create lasting memories.</p>
+            <p>THE DEN is a homegrown food and drinks brand serving freshly prepared meal prep boxes, healthy salads, and indulgent desserts. Every item is cooked to order and packed fresh daily.</p>
+            <p>Whether you're grabbing a quick Chicken Salad or pre-ordering our Blueberry Dessert Cups, we make sure every bite is worth it. Open Monday–Saturday, 7:00 AM to 7:00 PM.</p>
           </div>
         </div>
       </section>
 
       <section id="foods" className="section section-dark">
         <div className="observe-fade">
-          <SectionHeading eyebrow="Accommodations" heading="Luxurious Foods & Packages" highlight="Packages" description="Choose from our selection of premium villas and curated packages." />
+          <SectionHeading eyebrow="Our Menu" heading="Fresh Meals & Packages" highlight="Meals" description="From healthy salads to hearty meal prep boxes — order online or pre-order for pickup." />
         </div>
         <div className="packages-grid">
           {packages.map((pkg) => (
@@ -153,10 +243,10 @@ export default function Home() {
                 <div className="package-price">{pkg.price}<span>{pkg.perNight}</span></div>
                 <div className="package-buttons">
                   <a href={pkg.emailLink} className="package-btn package-btn-email" target="_blank" rel="noopener noreferrer">
-                    <i className="fa-solid fa-envelope"></i> Book via Email
+                    <i className="fa-solid fa-envelope"></i> Order via Email
                   </a>
                   <a href={pkg.smsLink} className="package-btn package-btn-sms">
-                    <i className="fa-solid fa-comment-sms"></i> Book via SMS
+                    <i className="fa-solid fa-comment-sms"></i> Order via SMS
                   </a>
                 </div>
               </div>
@@ -167,7 +257,7 @@ export default function Home() {
 
       <section id="gallery" className="section gallery-section">
         <div className="observe-fade">
-          <SectionHeading eyebrow="Our Gallery" heading="Captivating Moments" highlight="Moments" description="Explore the breathtaking beauty of our resort." />
+          <SectionHeading eyebrow="Our Gallery" heading="A Taste of THE DEN" highlight="Taste" description="A look at the food, flavors, and freshness we bring to every order." />
         </div>
         <div className="gallery-grid">
           {galleryImages.map((img, i) => (
@@ -184,32 +274,32 @@ export default function Home() {
 
       <section id="contact" className="section contact-section">
         <div className="observe-fade">
-          <SectionHeading eyebrow="Get in Touch" heading="Contact Us" highlight="Us" description="Have questions? We would love to hear from you." />
+          <SectionHeading eyebrow="Get in Touch" heading="Find & Contact Us" highlight="Contact" description="Have a question or want to place an order? Reach out and we'll get back to you." />
         </div>
         <div className="contact-container">
           <div className="contact-info observe-fade">
             <div className="contact-card">
               <div className="contact-icon"><i className="fa-solid fa-location-dot"></i></div>
-              <div className="contact-details"><h4>Location</h4><p>Maldives Resort, Beautiful Island</p></div>
+              <div className="contact-details"><h4>Location</h4><p>Quezon City, Philippines</p></div>
             </div>
             <div className="contact-card">
               <div className="contact-icon"><i className="fa-solid fa-phone"></i></div>
-              <div className="contact-details"><h4>Phone</h4><p><a href={`tel:${phone}`}>+91 98765 43210</a></p></div>
+              <div className="contact-details"><h4>Phone</h4><p><a href={`tel:${phone}`}>+63 915 056 0463</a></p></div>
             </div>
             <div className="contact-card">
               <div className="contact-icon"><i className="fa-solid fa-envelope"></i></div>
-              <div className="contact-details"><h4>Email</h4><p><a href={facebook} target="_blank" rel="noopener noreferrer">{email}</a></p></div>
+              <div className="contact-details"><h4>Email</h4><p><a href={`mailto:${email}`}>{email}</a></p></div>
             </div>
             <div className="contact-card">
               <div className="contact-icon"><i className="fa-brands fa-facebook-f"></i></div>
-              <div className="contact-details"><h4>Facebook</h4><p><a href={facebook} target="_blank" rel="noopener noreferrer">The DEN Maldives</a></p></div>
+              <div className="contact-details"><h4>Facebook</h4><p><a href={facebook} target="_blank" rel="noopener noreferrer">facebook.com/The-Den</a></p></div>
             </div>
             <div className="contact-cta">
-              <a href={`https://mail.google.com/mail/?view=cm&to=${email}&su=Booking+-+The+DEN`} className="contact-cta-btn email" target="_blank" rel="noopener noreferrer">
-                <i className="fa-solid fa-envelope"></i> Book via Email
+              <a href={`https://mail.google.com/mail/?view=cm&to=${email}&su=Order+-+The+DEN`} className="contact-cta-btn email" target="_blank" rel="noopener noreferrer">
+                <i className="fa-solid fa-envelope"></i> Order via Email
               </a>
-              <a href={`sms:${phone}?body=Hi%2C+I%27d+like+to+book.`} className="contact-cta-btn sms">
-                <i className="fa-solid fa-comment-sms"></i> Book via SMS
+              <a href={`sms:${phone}?body=Hi%2C+I%27d+like+to+order.`} className="contact-cta-btn sms">
+                <i className="fa-solid fa-comment-sms"></i> Order via SMS
               </a>
               <a href={facebook} target="_blank" rel="noopener noreferrer" className="contact-cta-btn facebook">
                 <i className="fa-brands fa-facebook-f"></i> Message on Facebook
@@ -217,7 +307,7 @@ export default function Home() {
             </div>
           </div>
           <div className="map-card observe-fade">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.123456789!2d73.22063481475793!3d3.207553697769538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b39e5e4e2e2e2e2%3A0x2e2e2e2e2e2e2e2e!2sMaldives!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123978.19764455888!2d121.02200!3d14.67628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b0e60b944ef7%3A0x9d0a1d3a9b9b7e7e!2sQuezon+City%2C+Metro+Manila%2C+Philippines!5e0!3m2!1sen!2sph!4v1680000000000!5m2!1sen!2sph" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </section>
@@ -225,7 +315,7 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-container">
           <div className="footer-logo"><span className="footer-logo-text">THE DEN</span></div>
-          <div className="footer-copyright">&copy; {new Date().getFullYear()} THE DEN. All rights reserved.</div>
+          <div className="footer-copyright">&copy; {new Date().getFullYear()} THE DEN Food and Drinks. All rights reserved.</div>
           <ul className="footer-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>

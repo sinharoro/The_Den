@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'THE DEN | Luxury Coastal Resort',
-  description: 'Experience the ultimate luxury coastal resort at THE DEN. Premium villas, stunning views, and world-class amenities.',
+  title: 'THE DEN | Food and Drinks',
+  description: 'The DEN serves fresh, healthy meal prep boxes and food delivery. Order your Chicken Salad, Herb Chicken, and more. Open Mon–Sat 7AM–7PM.',
 };
 
 export default function RootLayout({ children }) {

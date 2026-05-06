@@ -1,7 +1,7 @@
 {
   "name": "the_den",
   "version": "1.0.0",
-  "description": "THE DEN - Luxury Coastal Resort",
+  "description": "THE DEN - Food and Drinks Restaurant",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
