@@ -11,6 +11,9 @@
 
 html { scroll-behavior: smooth; }
 
+::-webkit-scrollbar { width: 0px; background: transparent; }
+body { -ms-overflow-style: none; scrollbar-width: none; }
+
 body {
   font-family: 'Inter', sans-serif;
   background: var(--color-off-white);
